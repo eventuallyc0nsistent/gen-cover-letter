@@ -5,13 +5,14 @@
 
 from fpdf import FPDF
 import json
+import csv
 
 class CoverLetter(object):
 	
 	def __init__(self,cover_letter,skills):
 
 		self.cover_letter = open(cover_letter,'r')
-		self.skills = open(skills)
+		self.skills = skills
 		self.writePDF(self.cover_letter,self.skills)
 
 	# read file and skills
@@ -20,17 +21,29 @@ class CoverLetter(object):
 		self.pdf = FPDF('P','mm','A4') # portrait mode, mm , A4 size paper
 		self.pdf.add_page()
 		self.pdf.set_font('Arial','',12)
-		self.skills = skills.readlines()
 		
+		# open csv file and read input
+		with open(self.skills) as skills_csv:
+			reader = csv.reader(skills_csv)
+			rownum = 0
 
-		for line in self.cover_letter:
-			line = line.replace('#website',self.skills[1].rstrip('\n'))
-			line = line.replace('#inserttools',self.skills[3].rstrip('\n'))
-			line = line.replace('#toolproficient',self.skills[5].rstrip('\n'))
-			line = line.replace('#toolyr',self.skills[7].rstrip('\n'))
-			line = line.replace('#company',self.skills[9].rstrip('\n'))
-			self.pdf.write(6,line)
+			for row in reader:
+				
+				#ignore the header row
+				if rownum == 0:
+					pass
 
-		self.pdf.output(self.skills[9]+'.pdf','F')
+				else :
+					for line in self.cover_letter:
 
-CoverLetter('cover_letter.txt','skills.txt')
+						line = line.replace('#website',row[0])
+						line = line.replace('#inserttools',row[1])
+						line = line.replace('#toolproficient',row[2])
+						line = line.replace('#toolyr',row[3])
+						line = line.replace('#company',row[4])
+						self.pdf.write(6,line)
+
+				rownum = rownum + 1
+				self.pdf.output('Cover Letter - '+row[4]+'.pdf','F')
+
+CoverLetter('cover_letter.txt','skills.csv')
