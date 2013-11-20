@@ -31,6 +31,6 @@ class CoverLetter(object):
 			line = line.replace('#company',self.skills[9].rstrip('\n'))
 			self.pdf.write(6,line)
 
-		self.pdf.output('newPDF.pdf','F')
+		self.pdf.output(self.skills[9]+'.pdf','F')
 
 CoverLetter('cover_letter.txt','skills.txt')
