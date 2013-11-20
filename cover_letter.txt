@@ -1,0 +1,12 @@
+Dear Hiring Manager,
+
+I am interested in the position you listed on #website . I belive my skills are a good match to be working with you and your team. I am familiar with the tools (#inserttools) that you require for the job. I have worked on #toolproficient for over #toolyr years.
+
+I am presently getting a Masters degree in Computer Science from New York University. Also I work part-time with a startup providing them solutions to make better software products. My latest product required me to gather data from web scraping, APIs or other sources and rank them according to a keyword based algorithm. I learned it requires dedication to be working in a small team and to understand the end user. I also got to interact with the best developers who guided me in developing my software skills in an Agile environment. I am constantly looking forward to upgrade my skills while developing software applications.
+
+I hope my resume helps you understand the application stack I have worked on and also helps you find a better fit for the position you have to offer at #company .
+
+Thank You.
+
+Sincerely,
+Kiran Koduru
