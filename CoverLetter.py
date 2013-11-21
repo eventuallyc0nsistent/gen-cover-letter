@@ -52,7 +52,7 @@ class CoverLetter(object):
 
 					self.pdf.output('Cover Letter - '+row[4]+'.pdf','F')
 					self.pdf.close()
-				
+									
 				rownum = rownum + 1
 
 				
