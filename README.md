@@ -11,9 +11,9 @@ The __cover_letter.txt__ file contains the basic format of your cover letter. An
 
 ###How to run the application
 
+```bash
+python cover_letter.py cover_letter.txt skills.csv
+```
 
-    python CoverLetter.py
-
-
-###Output files
-The PDF files generated with the company name.
+###Output
+The PDF files will be added __pdf__ directory.
