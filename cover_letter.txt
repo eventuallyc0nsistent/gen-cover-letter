@@ -1,18 +1,14 @@
-Kiran Koduru
-Phone: 123-456-7890
-Email: krk311@nyu.edu
+﻿Yi (Zack) Zhang
+Phone: 617-312-1318
+Email: zackL@bu.edu
 
+Dear #company,
 
+I would like to take this opportunity to introduce myself as a viable candidate for your #internship for #period. As a sophomore majoring in Math, CS, and Business at Boston University, I have been drawn to #field for its nature of creating business impact through technologies.
 
-Dear Hiring Manager,
+I have received numerous awards including 1st place at a machine learning hackathon hosted by Google at MIT in early 2019. In the summer of 2018, I worked for China Minsheng Banking Corp. (the 36th largest bank in the world by total assets) in Beijing on news extraction, chatbots, as well as task automation through TensorFlow/Keras and Neo4j. Through the course Data Science in R, I also completed a project regressing and visualizing Tesla' stock price and sentiments of the tweet regarding Tesla. I also pocess other skills. To illustrate, my past projects (available at zackLight.com) also help me excel in web development.
 
-I am interested in the position you listed on #website . I belive my skills are a good match to be working with you and your team. I am familiar with the tools (#inserttools) that you require for the job. I have worked in #toolproficient for over #toolyr years.
-
-I am presently getting a Masters degree in Computer Science from New York University. Also I work part-time with a startup providing them solutions to make better software products. My latest product required me to gather data from web scraping, APIs or other sources and rank them according to a keyword based algorithm. I learned it requires dedication to be working in a small team and to understand the end user. I also got to interact with the best developers who guided me in developing my software skills in an Agile environment. I am constantly looking forward to upgrade my skills while developing software applications.
-
-I hope my resume helps you understand the application stack I have worked on and also helps you find a better fit for the position you have to offer at #company .
-
-Thank You.
+I appreciate your time. Please consider allowing me to contribute my technical skills and strong initiative to #company. I can be reached at 617-312-1318 and zackL@bu.edu.
 
 Sincerely,
-Kiran Koduru
+Yi (Zack) Zhang 	

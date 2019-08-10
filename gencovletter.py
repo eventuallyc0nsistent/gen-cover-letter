@@ -1,58 +1,45 @@
 """"
-Need to read file from the input source : cover_letter.txt , skills.csv
-cover_letter.txt : the format of your cover letter. Variables in the cover letter are #website , #inserttools , #toolproficient , #toolproficientyr , #company
-skills.csv : it contains the skills you want to add for the given variables in the apt column
-Find and replace the right variables
-Create PDF with CoverLetter-companyName.pdf
-need to install fpdf module for your python version
+Use notepad++ to save the txt file as ISO-8859-1 encoding
 """
 
-from sys import argv
 from fpdf import FPDF
-import json
-import csv
+from ftfy import fix_text
+import time
+import os
 
+def write_cover_letter(company, field, internship, period, prefix):
+    pdf = FPDF('P', 'mm', 'Letter')  # portrait mode, mm , A4 size paper
+    pdf.add_page()  # new blank page
+    pdf.set_font('Times', '', 12)  # font, Style (B,U,I) , fontsize in pt.
 
-def write_cover_letter(cover_letter, skills):
+    model_cover_letter = open("cover_letter.txt", 'r', encoding="ISO-8859-1")
 
-    # open csv file and read input
-    with open(skills) as skills_csv:
+    for line in model_cover_letter:
+        line = fix_text(line)
 
-        reader = csv.reader(skills_csv)
-        rownum = 0
+        line = line.replace('#company', company)
+        line = line.replace('#internship', internship)
+        line = line.replace('#period', period)
+        line = line.replace('#field', field)
 
-        for row in reader:
+        pdf.write(6, line) #6 is line height
 
-            pdf = FPDF('P', 'mm', 'A4')  # portrait mode, mm , A4 size paper
-            pdf.add_page()  # new blank page
-            pdf.set_font('Arial', '', 12)  # font, Style (B,U,I) , fontsize in pt.
+    fullname = prefix + company.replace(" ", "_")
+    try:
+        pdf.output(fullname + '.pdf', 'F')
+    except:
+        os.system("taskkill /im Acrobat.exe")
+        time.sleep(1)
+        pdf.output(fullname + '.pdf', 'F')
 
-            #ignore the header row
-            if rownum == 0:
-                pass
-
-            else:
-                model_cover_letter = open(cover_letter, 'r')
-
-                for line in model_cover_letter:
-
-                    line = line.replace('#website', row[0])
-                    line = line.replace('#inserttools', ','.join(row[1].split('#')))  # skills are seperated by '#' split and join them
-                    line = line.replace('#toolproficient', row[2])
-                    line = line.replace('#toolyr', row[3])
-                    line = line.replace('#company', row[4])
-
-                    pdf.write(6, line)
-
-                pdf.output('cover_letters/Cover Letter - ' + row[4] + '.pdf', 'F')
-                pdf.close()
-
-            rownum = rownum + 1
+    pdf.close()
+    return fullname
 
 if __name__ == "__main__":
-
-    coverletter = argv[1]
-    skillset = argv[2]
-
-    # just use the right file names or modify the ones provided
-    write_cover_letter(coverletter, skillset)
+    company = "Boston Road Runners"
+    field = "data science"
+    internship = "Data Analytics Internship"
+    period = "the next year"
+    prefix = 'Yi_(Zack)_Zhang_Cover_Letter_'
+    fullname = write_cover_letter(company, field, internship, period, prefix)
+    os.system("start " + fullname + '.pdf')
