@@ -1,14 +1,1 @@
-﻿Yi (Zack) Zhang
-Phone: 617-312-1318
-Email: zackL@bu.edu
-
-Dear #company,
-
-I would like to take this opportunity to introduce myself as a viable candidate for your #internship for #period. As a sophomore majoring in Math, CS, and Business at Boston University, I have been drawn to #field for its nature of creating business impact through technologies.
-
-I have received numerous awards including 1st place at a machine learning hackathon hosted by Google at MIT in early 2019. In the summer of 2018, I worked for China Minsheng Banking Corp. (the 36th largest bank in the world by total assets) in Beijing on news extraction, chatbots, as well as task automation through TensorFlow/Keras and Neo4j. Through the course Data Science in R, I also completed a project regressing and visualizing Tesla' stock price and sentiments of the tweet regarding Tesla. I also pocess other skills. To illustrate, my past projects (available at zackLight.com) also help me excel in web development.
-
-I appreciate your time. Please consider allowing me to contribute my technical skills and strong initiative to #company. I can be reached at 617-312-1318 and zackL@bu.edu.
-
-Sincerely,
-Yi (Zack) Zhang 	
+﻿Yi (Zack) ZhangPhone: 617-312-1318Email: zackLT@umich.eduDear #company,I would like to take this opportunity to introduce myself as a viable candidate for your #internship for #period. As a rising junior studying CS and Statistics at the University of Michigan, Ann Arbor, I have been drawn to #field after seeing how it helps us create powerful narratives of our products and make evidence-informed decisions for our business.Conducting data mining research at school, I have also received numerous data science awards from organizations like Google, Microsoft, and Alibaba. In the summer of 2019, to hone my programming skills, I interned as a software engineer in Boston and worked on great machine learning and mobile/web app projects. In the summer of 2018, I worked for China Minsheng Banking Corp. (the 36th largest bank globally by total assets) in Beijing on news extraction, chatbots, as well as task automation through TensorFlow/Keras and Neo4j.I consider myself curious, inventive, and collaborative. Please allow me to contribute my skills (such as in #skills) to #company. I can be reached at 617-312-1318 and zackLT@umich.edu.Sincerely,Yi (Zack) Zhang 	

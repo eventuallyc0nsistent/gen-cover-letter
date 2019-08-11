@@ -7,7 +7,7 @@ from ftfy import fix_text
 import time
 import os
 
-def write_cover_letter(company, field, internship, period, fn):
+def write_cover_letter(customization):
     pdf = FPDF('P', 'mm', 'Letter')  # portrait mode, mm , A4 size paper
     pdf.add_page()  # new blank page
     pdf.set_font('Times', '', 12)  # font, Style (B,U,I) , fontsize in pt.
@@ -16,28 +16,33 @@ def write_cover_letter(company, field, internship, period, fn):
 
     for line in model_cover_letter:
         line = fix_text(line)
-
-        line = line.replace('#company', company)
-        line = line.replace('#internship', internship)
-        line = line.replace('#period', period)
-        line = line.replace('#field', field)
+        
+        for key, value in customization.items():
+            full_variable_name = "#" + key
+            line = line.replace(full_variable_name, value)
 
         pdf.write(6, line) #6 is line height
 
+    file_name = customization["file_name"]
+
     try:
-        pdf.output(fn + '.pdf', 'F')
+        pdf.output(file_name + '.pdf', 'F')
     except:
         os.system("taskkill /im Acrobat.exe")
         time.sleep(1)
-        pdf.output(fn + '.pdf', 'F')
+        pdf.output(file_name + '.pdf', 'F')
 
     pdf.close()
 
 if __name__ == "__main__":
-    company = "Boston Road Runners"
-    field = "data science"
-    internship = "Data Analytics Internship"
-    period = "the next year"
-    fn = 'Yi_(Zack)_Zhang_Cover_Letter'
-    write_cover_letter(company, field, internship, period, fn)
-    os.system("start " + fn + '.pdf')
+    customization = {
+    "file_name": 'Yi_(Zack)_Zhang_Cover_Letter',
+    "company": "Slack",
+    "field": "data science",
+    "internship": "Data Analytics Internship",
+    "period": "the summer of 2020",
+    "skills": "Hadoop",
+    }
+
+    write_cover_letter(customization)
+    os.system("start " + customization["file_name"] + '.pdf')
