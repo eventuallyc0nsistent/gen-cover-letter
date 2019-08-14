@@ -37,11 +37,13 @@ def write_cover_letter(customization):
 if __name__ == "__main__":
     customization = {
     "file_name": 'Yi_(Zack)_Zhang_Cover_Letter',
-    "company": "Slack",
+    "company": "Google",
+    # "field": "software engineering",
     "field": "data science",
-    "internship": "Data Analytics Internship",
+    # "internship": "Software Engineer Internship",
+    "internship": "Research Internship",
     "period": "the summer of 2020",
-    "skills": "Hadoop",
+    "skills": "natural language processing",
     }
 
     write_cover_letter(customization)
