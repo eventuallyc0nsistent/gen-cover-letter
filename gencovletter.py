@@ -36,15 +36,15 @@ def write_cover_letter(customization):
 
 if __name__ == "__main__":
     customization = {
-    "file_name": 'Yi_(Zack)_Zhang_Cover_Letter',
-    "company": "Google",
+    "file_name": 'Zack_Zhang_Cover_Letter',
+    "company": "Figma",
     # "field": "software engineering",
-    "field": "data science",
+    # "field": "data science",
     # "internship": "Software Engineer Internship",
-    "internship": "Research Internship",
-    "period": "the summer of 2020",
-    "skills": "natural language processing",
+    "internship": "the Software Engineer position",
+    # "period": "the summer of 2020",
+    # "skills": "natural language processing",
     }
 
     write_cover_letter(customization)
-    os.system("start " + customization["file_name"] + '.pdf')
+    os.system("xdg-open " + customization["file_name"] + '.pdf')
