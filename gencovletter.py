@@ -7,6 +7,8 @@ from ftfy import fix_text
 import time
 import os
 
+line_height = 6
+
 def write_cover_letter(customization):
     pdf = FPDF('P', 'mm', 'Letter')  # portrait mode, mm , A4 size paper
     pdf.add_page()  # new blank page
@@ -16,35 +18,47 @@ def write_cover_letter(customization):
 
     for line in model_cover_letter:
         line = fix_text(line)
-        
+
         for key, value in customization.items():
             full_variable_name = "#" + key
             line = line.replace(full_variable_name, value)
 
-        pdf.write(6, line) #6 is line height
+        if "https:" not in line:
+            pdf.write(line_height, line)  # 6 is line height
+        else:
+            link_idx = line.find("https:")
+            before_link = line[:link_idx]
+            after_link = line[link_idx:].strip()
+            pdf.write(line_height, before_link)
+            pdf.set_text_color(0, 0, 255)
+            pdf.set_font('', 'U')
+            pdf.write(line_height, line[link_idx:], link=after_link)
+            pdf.set_text_color(0, 0, 0)
+            pdf.set_font('', '')
 
     file_name = customization["file_name"]
 
     try:
         pdf.output(file_name + '.pdf', 'F')
     except:
-        os.system("taskkill /im Acrobat.exe")
+        # os.system("taskkill /im Acrobat.exe")
+        os.system("killall -KILL AdobeAcrobat")  # for mac
         time.sleep(1)
         pdf.output(file_name + '.pdf', 'F')
 
     pdf.close()
 
+
 if __name__ == "__main__":
     customization = {
-    "file_name": 'Zack_Zhang_Cover_Letter',
-    "company": "Figma",
-    # "field": "software engineering",
-    # "field": "data science",
-    # "internship": "Software Engineer Internship",
-    "internship": "the Software Engineer position",
-    # "period": "the summer of 2020",
-    # "skills": "natural language processing",
+        "file_name": 'Zack_Light_Cover_Letter',
+        "company": "Jump Trading",
+        "position": "the Software Engineer position",
+        # "field": "software engineering",
+        # "field": "data science",
+        # "period": "the summer of 2020",
+        # "skills": "natural language processing",
     }
 
     write_cover_letter(customization)
-    os.system("xdg-open " + customization["file_name"] + '.pdf')
+    os.system("open " + customization["file_name"] + '.pdf')
