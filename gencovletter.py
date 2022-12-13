@@ -38,13 +38,17 @@ def write_cover_letter(customization):
 
     file_name = customization["file_name"]
 
-    try:
-        pdf.output(file_name + '.pdf', 'F')
-    except:
-        # os.system("taskkill /im Acrobat.exe")
-        os.system("killall -KILL AdobeAcrobat")  # for mac
-        time.sleep(1)
-        pdf.output(file_name + '.pdf', 'F')
+    # windows
+    # try:
+    #     pdf.output(file_name + '.pdf', 'F')
+    # except:
+    #     os.system("taskkill /im Acrobat.exe")
+    #     time.sleep(1)
+    #     pdf.output(file_name + '.pdf', 'F')
+
+    os.system("killall -KILL AdobeAcrobat")  # for mac
+    time.sleep(1)
+    pdf.output(file_name + '.pdf', 'F')
 
     pdf.close()
 
@@ -52,8 +56,8 @@ def write_cover_letter(customization):
 if __name__ == "__main__":
     customization = {
         "file_name": 'Zack_Light_Cover_Letter',
-        "company": "Jump Trading",
-        "position": "the Software Engineer position",
+        "company": "DRW",
+        "position": "the Trading Systems Engineer (Algo) position",
         # "field": "software engineering",
         # "field": "data science",
         # "period": "the summer of 2020",
